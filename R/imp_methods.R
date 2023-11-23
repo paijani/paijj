@@ -6,7 +6,7 @@
 #' @return A character vector of available imputation methods
 #' @export
 #'
-#' @examples methods <- get_imputation_methods("binary")
+#' @examples methods <- imp_methods("binary")
 #' methods
 imp_methods <- function(data_type) {
   valid_data_types <- c("binary", "numeric", "ordered", "unordered")

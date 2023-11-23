@@ -18,6 +18,6 @@ A character vector of available imputation methods
 Get available imputation methods based on data type
 }
 \examples{
-methods <- get_imputation_methods("binary")
+methods <- imp_methods("binary")
 methods
 }

@@ -1,0 +1,34 @@
+---
+title: "Paijj R Package"
+author: "Paijani Sheth"
+format: pptx
+editor: visual
+---
+
+## Function 
+
+The function is called imp_methods, and its purpose is to provide user with a list of possible imputation methods for their imputation analysis.
+
+Input: data_type
+
+-   numeric
+
+-   binary
+
+-   ordered
+
+-   unordered
+
+Output: List of imputation methods outlined in the mice package.
+
+## Example
+
+get_imputation
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
