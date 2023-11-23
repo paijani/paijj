@@ -5,7 +5,7 @@ format: pptx
 editor: visual
 ---
 
-## Function 
+## Function
 
 The function is called imp_methods, and its purpose is to provide user with a list of possible imputation methods for their imputation analysis.
 
@@ -23,12 +23,41 @@ Output: List of imputation methods outlined in the mice package.
 
 ## Example
 
-get_imputation
+```         
+> imp_methods('binary')  
+[1] "pmm"                 "midastouch"          "sample"              "cart"      [5] "rf"                  "2lonly.pmm"          "logreg"              "logreg.boot" [9] "lasso.logreg"        "lasso.select.logreg" "2l.bin"    
+```
 
 ## Code
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
-1 + 1
+imp_methods <- function(data_type) {
+  valid_data_types <- c("binary", "numeric", "ordered", "unordered")
+
+  if(!data_type %in% valid_data_types) {
+    stop("Invalid data type. Supported types: 'binary', 'numeric, 'ordered', 'unordered")
+  }
+
+  if(data_type == "numeric") {
+    return(c("pmm", "midastouch", "sample", "cart", "rf", "2lonly.pmm", "2l.norm", "2l.lmer", "2lonly.mean", "2lonly.norm", "mean", "norm", "norm.nob", "norm.boot", "norm.predict", "lasso.norm", "lasso.select.norm", "quadratic", "ri"))
+  } else if(data_type == "binary") {
+    return(c("pmm", "midastouch", "sample", "cart", "rf", "2lonly.pmm", "logreg", "logreg.boot","lasso.logreg","lasso.select.logreg", "2l.bin"))
+  } else if(data_type == "ordered") {
+    return(c("pmm", "midastouch", "sample", "cart", "rf", "2lonly.pmm", "polr"))
+  } else if(data_type == "unordered") {
+    return(c("pmm", "midastouch", "sample", "cart", "rf", "2lonly.pmm", "polyreg", "lda"))
+  }
+}
 ```
+
+## Why is this function needed?
+
+When conducting a multiple imputation analysis, one has to decide on what imputation model is best for their data. My function will allow the user to input the type of data they have (for eg. binary data) and output a list of possible imputation methods. This will make it easier for the user to select their imputation method and perform the analysis. The mice package provides a list of these methods, but my function allows one to filter the methods based on their data.
+
+## future steps (delete this section later):
+
+-   consider adding more methods in addition to what is listed in mice. This will provide an added benefit to my package.
+-   think about other functions you can add. For eg. is there a way for the user to input their data (not data_type), and the function will output the method types.
+-   go over this will Aya
