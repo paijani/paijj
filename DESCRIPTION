@@ -1,14 +1,21 @@
 Package: paijj
 Type: Package
-Title: What the Package Does (Title Case)
+Title: It facilitates the handling of missing data
 Version: 0.1.0
-Author: Who wrote it
+Author: Paijani Sheth
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: The package includes 2 functions: missing_gone and imp_methods. 
+    Missing_gone removes variables that have a certain percentage of missing values. The percentage of missing values that determine
+    whether the variable will be removed or not is set by the user. Imp_methods will provide user with options of imputation methods by 
+    mice, based on whether they want to impute a  nominal, ordinal, continuous, binary, level 1 or level 2 variable.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 URL: https://github.com/paijani/paijj
 BugReports: https://github.com/paijani/paijj/issues
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

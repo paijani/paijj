@@ -64,4 +64,7 @@ When conducting a multiple imputation analysis, one has to decide on what imputa
 -   add a function that will make an imputation related plots.
 -   overview of package, demonstration, motivation (why its great and useful), and future directions.
 -   give an example of what you would do if you didn't have the function.
--   make it interactive, so other ppl would join me in doing the code:)
+
+Example: if we wanted to test the association between the outcome maternal mortality and armed conflict (main exposure). A linear regression can be conducted, and the variables adjusted for would be ...
+
+For my exmaple data descruption, do I need to define what each variable means?
