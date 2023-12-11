@@ -1,9 +1,24 @@
 ---
-title: "Paijj"
-author: "Paijani Sheth"
-format: revealjs
-editor: visual
+title: "my-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(paijj)
+library(here)
+library(readr)
+```
 
 # Outline
 
@@ -94,8 +109,6 @@ This is a lot of work!
 With "missing_gone" we can achieve this result in one line
 
 ```{r}
-library(paijj)
-library(dplyr)
 conflict_data_new2 <- missing_gone(conflict_data, threshold = 0.1)
 conflict_data_new2
 ```
@@ -116,23 +129,25 @@ To illustrate further, let's use an example data set that has a lot more missing
 This data set has 367 columns currently.
 
 ```{r}
-library(here) 
-library(readr)
 healsl <- read_csv(here("data-raw","healsl_rd1_adult_v1.csv")) 
 healsl
 ```
 
 ```{r}
-length(healsl)
+new_data_50 <- missing_gone(healsl, threshold = 0.5) 
+new_data_50
 ```
 
 ```{r}
-new_data_50 <- missing_gone(healsl, threshold = 0.5) 
 length(new_data_50)
 ```
 
 ```{r}
 new_data_10 <- missing_gone(healsl, threshold = 0.1) 
+new_data_10
+```
+
+```{r}
 length(new_data_10)
 ```
 

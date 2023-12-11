@@ -6,7 +6,8 @@
 #' @return A character vector of available imputation methods from the mice package, including their full name and mice code
 #'
 #'
-#' @examples methods <- imp_methods("binary")
+#'@export
+#'@examples methods <- imp_methods("binary")
 imp_methods <- function(data_type = "binary") {
   valid_data_types <- c("binary", "numeric", "ordinal", "nominal")
 

@@ -5,8 +5,7 @@
 #' Variables with missing data percent frequency above this threshold will be removed.
 #' @param exclude A variable is deemed important in dataset and does not want removed, even if missingness is above threshold
 #' @return A data frame with variables removed based on the threshold
-#'
-#'
+#' @export
 #' @examples Using the "here" package to locate the example file:
 #' library(here)
 #' library(dplyr)
