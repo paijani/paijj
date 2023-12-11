@@ -16,6 +16,9 @@
 
 missing_gone <- function(data, threshold = 0.1, exclude = NULL) {
 
+  #load dplyr
+  library(dplyr)
+
   #identify the variables
   variables <- colnames(data)
 

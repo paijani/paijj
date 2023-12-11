@@ -1,7 +1,7 @@
 ---
-title: "Paijj R Package"
+title: "Paijj"
 author: "Paijani Sheth"
-format: pptx
+format: revealjs
 editor: visual
 ---
 
@@ -18,7 +18,7 @@ editor: visual
 
 # Intro
 
-Data cleaning is well-known to be a long and tedious process in data analysis. An important part of that process involves handling missing data. The purpose of Paijj is to make the user's life easier when handling missing data, by increasing the speed and efficiency at which its done.
+Data cleaning is well-known to be a long and tedious process in data analysis. An important part of that process involves handling missing data. The purpose of Paijj is to make the user's life easier when handling missing data, by increasing its speed and efficiency.
 
 # Functions
 
@@ -49,6 +49,8 @@ To illustrate the efficiency of this function, let's first go over what we would
 Example data will be the conflict data
 
 ```{r}
+library(here)
+conflict_data <- read.csv(here("data-raw", "conflict_data.csv"))
 conflict_data
 ```
 
@@ -61,34 +63,26 @@ ncol(conflict_data)
 Based on the imputation lecture maternal mortality was the only variable with over 10% missing data.
 
 ```{r}
-#confirm that maternal mortality rate had above 10% missingness
+#confirm that maternal mortality rate had above 10% missingness 
 mean(is.na(conflict_data$`Maternal Mortality rate`))*100
 ```
 
 Let's attempt to remove variables above the 10% threshold without missing_gone first.
 
 ```{r}
-# Set the threshold percentage
-threshold_percentage <- 10
-
-# Count the number of missing values in each column
-missing_values_count <- colSums(is.na(conflict_data))
-
-# Calculate the total number of observations in each column
-total_values <- nrow(conflict_data)
-
-# Calculate the percentage of missing values in each column
-percentage_missing <- (missing_values_count / total_values) * 100
-
-# Identify columns with missing values exceeding the threshold
-columns_above_threshold <- names(percentage_missing[percentage_missing > threshold_percentage])
-
-# Create a new dataset with columns below the threshold
-conflict_data_new1 <- conflict_data[, setdiff(names(conflict_data), columns_above_threshold)]
-
-# Display the result
+# Set the threshold percentage 
+threshold_percentage <- 10  
+# Count the number of missing values in each column 
+missing_values_count <- colSums(is.na(conflict_data))  
+# Calculate the total number of observations in each column 
+total_values <- nrow(conflict_data)  
+# Calculate the percentage of missing values in each column 
+percentage_missing <- (missing_values_count / total_values) * 100  
+# Identify columns with missing values exceeding the threshold 
+columns_above_threshold <- names(percentage_missing[percentage_missing > threshold_percentage])  
+# Create a new dataset with columns below the threshold 
+conflict_data_new1 <- conflict_data[, setdiff(names(conflict_data), columns_above_threshold)] # Display the result
 conflict_data_new1
-
 ```
 
 ```{r}
@@ -100,10 +94,10 @@ This is a lot of work!
 With "missing_gone" we can achieve this result in one line
 
 ```{r}
-
+library(paijj)
+library(dplyr)
 conflict_data_new2 <- missing_gone(conflict_data, threshold = 0.1)
 conflict_data_new2
-
 ```
 
 What if you wanted to conduct a linear regression with the outcome variable as maternal mortality. In that case, maternal mortality cannot be removed from the data set. In order to keep the threshold at 10% and keep maternal mortality in the data set, you can use the "exclude" argument.
@@ -111,7 +105,7 @@ What if you wanted to conduct a linear regression with the outcome variable as m
 This argument will make the chosen variable an exception, so even if it's missingness is above 10%, it is not removed.
 
 ```{r}
-conflict_data_new3 <- missing_gone(conflict_data, threshold = 0.1, exclude = "Maternal Mortality rate")
+conflict_data_new3 <- missing_gone(conflict_data, threshold = 0.1, exclude = "Maternal Mortality rate") 
 conflict_data_new3
 ```
 
@@ -122,15 +116,15 @@ To illustrate further, let's use an example data set that has a lot more missing
 This data set has 367 columns currently.
 
 ```{r}
-library(here)
-healsl <- read_csv(here("data-raw","healsl_rd1_adult_v1.csv"))
+library(here) 
+library(readr)
+healsl <- read_csv(here("data-raw","healsl_rd1_adult_v1.csv")) 
 healsl
 ```
 
 ```{r}
-new_data_50 <- missing_gone(healsl, threshold = 0.5)
+new_data_50 <- missing_gone(healsl, threshold = 0.5) 
 new_data_50
-
 ```
 
 ```{r}
@@ -138,9 +132,8 @@ length(new_data_50)
 ```
 
 ```{r}
-new_data_10 <- missing_gone(healsl, threshold = 0.1)
+new_data_10 <- missing_gone(healsl, threshold = 0.1) 
 new_data_10
-
 ```
 
 ```{r}
@@ -198,4 +191,6 @@ imp_methods("ordinal")
 -   For imp_methods, imputation methods can be filtered further. For example, by imputation level 1 and 2.
 -   For imp_methods, more imputation methods can be added (beyond mice methods)
 
-# 
+# GitHub Repository
+
+<https://github.com/paijani/paijj>
