@@ -4,15 +4,13 @@
 \alias{imp_methods}
 \title{Get available imputation methods based on data type}
 \usage{
-imp_methods(data_type, level)
+imp_methods(data_type = "binary")
 }
 \arguments{
-\item{data_type}{The type of data in the outcome column (eg. "binary", "numeric", "ordinal", "nominal")}
-
-\item{methods}{Built-in uni-variate imputation methods from the mice package}
+\item{data_type}{The type of data in the outcome column (supported data types: "binary", "numeric", "ordinal", "nominal")}
 }
 \value{
-A character vector of available imputation methods
+A character vector of available imputation methods from the mice package, including their full name and mice code
 }
 \description{
 Get available imputation methods based on data type
