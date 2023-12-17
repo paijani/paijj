@@ -1,6 +1,7 @@
 #' @title Get available imputation methods based on data type
 #'
 #' @param data_type The type of data in the outcome column (supported data types: "binary", "numeric", "ordinal", "nominal")
+#' @param level The level of imputation method ("1" or "2")
 #'
 #'
 #' @return A character vector of available imputation methods from the mice package, including their full name and mice code

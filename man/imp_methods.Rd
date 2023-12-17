@@ -8,6 +8,8 @@ imp_methods(data_type = "binary")
 }
 \arguments{
 \item{data_type}{The type of data in the outcome column (supported data types: "binary", "numeric", "ordinal", "nominal")}
+
+\item{level}{The level of imputation method ("1" or "2")}
 }
 \value{
 A character vector of available imputation methods from the mice package, including their full name and mice code

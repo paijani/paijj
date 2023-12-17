@@ -2,7 +2,7 @@
 % Please edit documentation in R/missing_gone.R
 \name{missing_gone}
 \alias{missing_gone}
-\title{remove missing data based on thresholds created by user}
+\title{remove missing data based on percent thresholds defined by user}
 \usage{
 missing_gone(data, threshold = 0.1, exclude = NULL)
 }
@@ -12,19 +12,19 @@ missing_gone(data, threshold = 0.1, exclude = NULL)
 \item{threshold}{The threshold that represents the percentage of missing data in the variable.
 Variables with missing data percent frequency above this threshold will be removed.}
 
-\item{exclude}{A variable is deemed important in dataset and does not want removed, even if missingness is above threshold}
+\item{exclude}{A variable is deemed important in data set and will not want removed, even if percent missing is above threshold}
 }
 \value{
-A data frame with variables removed based on the threshold
+A cleaner data frame with variables removed based on the threshold and a character vector of variables that were removed.
 }
 \description{
-remove missing data based on thresholds created by user
+remove missing data based on percent thresholds defined by user
 }
 \examples{
 Using the "here" package to locate the example file:
 library(here)
 library(dplyr)
-data <- here("data-raw", "conflict_data.csv")
+data <- read.csv(here("data-raw", "conflict_data.csv"))
 Write in the function:
 data <- missing_gone(data, threshold = 0.1, exclude = "Maternal Mortality Rate")
 }
