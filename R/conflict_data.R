@@ -25,7 +25,7 @@
 #'    \item{totdeath}{Total number of deaths}
 #'    \item{armconfl}{Whether there was armed conflict (greater than or equal to 25 battle-related deaths) of not (less than 25 battle related deaths)}
 #'    }
-#' @source: https://pubmed.ncbi.nlm.nih.gov/34582455/
+#' @source https://pubmed.ncbi.nlm.nih.gov/34582455/
 #' @references Jawad, M., Hone, T., Vamos, E.P., Cetorelli, V., Millett, C. (2021).Implications of armed conflict for
 #'  maternal and child health: A regression analysis of data from 181 countries for 2000-2019. PLoS Medicine, 18(9),
 #'  doi: 10.1371/journal.pmed.1003810.

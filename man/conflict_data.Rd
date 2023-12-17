@@ -28,7 +28,7 @@ A data frame with 3720 rows and 19 columns:
    }
 }
 \source{
-: https://pubmed.ncbi.nlm.nih.gov/34582455/
+https://pubmed.ncbi.nlm.nih.gov/34582455/
 }
 \usage{
 conflict_data

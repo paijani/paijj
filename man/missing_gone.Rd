@@ -15,7 +15,7 @@ Variables with missing data percent frequency above this threshold will be remov
 \item{exclude}{A variable is deemed important in data set and will not want removed, even if percent missing is above threshold}
 }
 \value{
-A cleaner data frame with variables removed based on the threshold and a character vector of variables that were removed.
+A list of a cleaner data set with variables removed based on the threshold and a character vector of variables that were removed.
 }
 \description{
 remove missing data based on percent thresholds defined by user

@@ -4,7 +4,7 @@
 #' @param threshold The threshold that represents the percentage of missing data in the variable.
 #' Variables with missing data percent frequency above this threshold will be removed.
 #' @param exclude A variable is deemed important in data set and will not want removed, even if percent missing is above threshold
-#' @return A cleaner data frame with variables removed based on the threshold and a character vector of variables that were removed.
+#' @return A list of a cleaner data set with variables removed based on the threshold and a character vector of variables that were removed.
 #' @export
 #' @examples Using the "here" package to locate the example file:
 #' library(here)
